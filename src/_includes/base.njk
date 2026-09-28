@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  {# Core text values #}
+  {% set site_name = "Mari Anuashvili" %}
+  {% set default_description = "Mari Anuashvili writes about product, operations, and building with AI, drawing on a background in finance and software engineering." %}
+  {% set page_title = title or site_name %}
+  {% set page_description = description or excerpt or default_description %}
+  {% set social_image = social_image or "/assets/social/og-default.png" %}
+  {% set canonical_url = "https://manuashvili.github.io" + (page.url or "") %}
+
+  <title>{% if title %}{{ title }} | {% endif %}Mari Anuashvili</title>
+
+  <meta name="description" content="{{ page_description }}">
+  <meta name="author" content="Mari Anuashvili">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="https://manuashvili.github.io{{ social_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description }}">
+  <meta name="twitter:image" content="https://manuashvili.github.io{{ social_image }}">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="{% if page.url == '/' %}home{% endif %}">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+                <div class="title">
+                    <div class="site-kicker">product · operations · AI</div>
+                    <div class="site-name-full"><a href="/">Mari Anuashvili</a></div>
+                </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+                <p class="site-subtitle">Notes on how products get built, shipped, and run</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="cell cell-top">
+                <ul class="menu">
+                    <li class="menu-item {% if page.url == '/about/' %}active{% endif %}"><a href="/about/">about</a></li>
+                    <li class="menu-item {% if '/posts/' in page.url %}active{% endif %}"><a href="/posts/">posts</a></li>
+                    <li class="menu-item {% if page.url == '/contact/' %}active{% endif %}"><a href="/contact/">contact</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <main>
+        {% if tagline %}
+        <div class="tagline">
+            <p>{{ tagline }}</p>
+        </div>
+        {% endif %}
+
+        <div class="content main-container">
+            {{ content | safe }}
+        </div>
+    </main>
+
+    <footer>
+    <div class="wide-container">
+        <div class="join-cta">
+            <ul>
+                <li><a href="/contact/" aria-label="Contact form">Contact</a></li>
+                <li><a href="https://www.linkedin.com/in/manuashvili/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+                <li><a href="https://github.com/mariiamii" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
+            </ul>
+            <p class="footer-note">© 2026 Mari Anuashvili</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

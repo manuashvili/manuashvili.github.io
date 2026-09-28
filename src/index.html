@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Home
+---
+
+<h1 class="home-title">Recent Posts</h1>
+
+{% for post in collections.recentPosts %}
+    <article class="post-preview">
+      <div class="post-preview-inner">
+        <div class="post-preview-date">
+          {%- if post.data.date -%}
+            <span class="post-date-day">{{ post.data.date | dateDayMonth }}</span>
+            <span class="post-date-year">{{ post.data.date | dateYear }}</span>
+          {%- endif -%}
+        </div>
+        <div class="post-preview-content">
+          <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p class="post-excerpt">{{ post.data.excerpt }}</p>
+        </div>
+      </div>
+    </article>
+{%- endfor -%}
+
+<p class="view-more">
+  <a href="/posts/">View all posts</a>
+</p>

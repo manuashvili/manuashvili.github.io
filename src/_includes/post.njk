@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+
+<article class="post">
+    {% if heroImage %}
+    <div class="post-hero-image">
+        <img src="{{ heroImage }}" alt="{{ heroImageAlt or title }}" class="hero-image">
+    </div>
+    {% endif %}
+    <h1>{{ title }}</h1>
+    {% if subtitle %}
+    <p class="post-subtitle">{{ subtitle }}</p>
+    {% endif %}
+    {% if author or date %}
+    <div class="byline">
+        <div class="byline-text">
+            {% if author %}<span class="author">By {{ author }}</span>{% endif %}
+            {% if date %}<span class="date">{{ date | dateFormat }}</span>{% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+</article>

@@ -1,0 +1,16 @@
+{
+  "name": "manuashvili.github.io",
+  "version": "1.0.0",
+  "description": "Mari Anuashvili's personal site and blog.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}
