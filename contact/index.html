@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  
+  
+  
+  
+  
+  
+
+  <title>Contact | Mari Anuashvili</title>
+
+  <meta name="description" content="Mari Anuashvili writes about product, operations, and building with AI, drawing on a background in finance and software engineering.">
+  <meta name="author" content="Mari Anuashvili">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mari Anuashvili">
+  <meta property="og:title" content="Contact">
+  <meta property="og:description" content="Mari Anuashvili writes about product, operations, and building with AI, drawing on a background in finance and software engineering.">
+  <meta property="og:url" content="https://manuashvili.github.io/contact/">
+  <meta property="og:image" content="https://manuashvili.github.io/assets/social/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact">
+  <meta name="twitter:description" content="Mari Anuashvili writes about product, operations, and building with AI, drawing on a background in finance and software engineering.">
+  <meta name="twitter:image" content="https://manuashvili.github.io/assets/social/og-default.png">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="">
+    <header class="page-header">
+        <div class="header-content">
+        <div class="header-left">
+            <div class="cell cell-top">
+                <div class="title">
+                    <div class="site-kicker">product · operations · AI</div>
+                    <div class="site-name-full"><a href="/">Mari Anuashvili</a></div>
+                </div>
+            </div>
+            <div class="border-line border-between-left" aria-hidden="true"></div>
+            <div class="cell cell-bottom">
+                <p class="site-subtitle">Notes on how products get built, shipped, and run</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="cell cell-top">
+                <ul class="menu">
+                    <li class="menu-item "><a href="/about/">about</a></li>
+                    <li class="menu-item "><a href="/posts/">posts</a></li>
+                    <li class="menu-item active"><a href="/contact/">contact</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <main>
+        
+
+        <div class="content main-container">
+            <h1>Contact</h1>
+<p>Want to talk product, compare notes, or chat about a role? Send me a message below or find me on <a href="https://www.linkedin.com/in/manuashvili/">LinkedIn</a>.</p>
+<form
+  id="contact-form"
+  action="https://formspree.io/f/xwlpwagk"
+  method="POST"
+  class="contact-form"
+>
+  <label>
+    Your email:
+    <input type="email" name="email" required>
+  </label>
+  <label>
+    Your message:
+    <textarea name="message" rows="10" required></textarea>
+  </label>
+  <p id="form-status" class="form-status" aria-live="polite"></p>
+  <button type="submit">Send</button>
+</form>
+<script>
+(function() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  if (!form || !status) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    status.className = 'form-status form-status--sending';
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        status.textContent = 'Thanks for your message. I\'ll get back to you soon.';
+        status.className = 'form-status form-status--success';
+        form.reset();
+      } else {
+        if (data.errors) {
+          status.textContent = data.errors.map(err => err.message).join(', ');
+        } else {
+          status.textContent = 'Something went wrong. Please try again.';
+        }
+        status.className = 'form-status form-status--error';
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'form-status form-status--error';
+    }
+  });
+})();
+</script>
+        </div>
+    </main>
+
+    <footer>
+    <div class="wide-container">
+        <div class="join-cta">
+            <ul>
+                <li><a href="/contact/" aria-label="Contact form">Contact</a></li>
+                <li><a href="https://www.linkedin.com/in/manuashvili/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+                <li><a href="https://github.com/mariiamii" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
+            </ul>
+            <p class="footer-note">© 2026 Mari Anuashvili</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
