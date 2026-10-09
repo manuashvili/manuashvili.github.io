@@ -39,6 +39,6 @@ Take something as small as when a summary runs. Generating one on every commit v
 
 One habit I'd recommend before shipping any AI feature: estimate what it costs per user per month for a light user and a heavy one. If you can't, you probably don't understand the feature well enough to ship it yet.
 
-## Why this is on my mind
+## The question I ask now
 
-Before I worked in software, I was a financial analyst. In finance, you get used to asking what something costs before anyone gets excited about what it's worth. I didn't expect that habit to matter much once I moved into building products. With AI, it turns out to matter a lot.
+Whenever I look at a new AI feature, my first question is who pays each time someone clicks it. The answer says a lot about whether the feature can survive its own success.
